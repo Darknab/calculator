@@ -1,0 +1,59 @@
+body {
+    background-color: grey;
+    position: relative;
+    height: 1000px;
+}
+
+.container {
+    width: 300px;
+    height: 500px;
+    margin: 10% auto;
+    background-color: aquamarine;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.display {
+    width: 95%;
+    height: 20%;
+    background-color: black;
+    margin: auto;
+    border-radius: 10px;
+    
+}
+
+.keyboard {
+    width: 95%;
+    height: 75%;
+    background-color: rgba(236, 97, 97, 0.784);
+    margin: 5% auto 5% auto;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    padding: 1%;   
+}
+
+button {
+   height: 14%;
+   width: 23%; 
+   border-radius: 10px;
+}
+
+button:hover {
+    background-color: rgb(190, 190, 164);
+}
+
+.numeric {
+    background-color: rgb(190, 190, 164);
+}
+
+.numeric:hover {
+    background-color: white;
+}
+
+#result {
+    background-color: orange;
+}
