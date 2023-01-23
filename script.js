@@ -13,6 +13,9 @@ function multiply(num1,num2) {
 function divide(num1,num2) {
     return num1 / num2;
 }
+function inverse(num1) {
+    return 1/num1;
+}
 
 function operate(num1,num2,opr) {
     switch (opr) {

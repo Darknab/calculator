@@ -1,45 +1,58 @@
 body {
     background-color: grey;
     position: relative;
-    height: 1000px;
+    height: 500px;
+    font-size: 20px;
 }
 
 .container {
     width: 300px;
     height: 500px;
-    margin: 10% auto;
+    margin: 5% auto;
     background-color: aquamarine;
     padding: 2%;
     border-radius: 10px;
 }
 
 .display {
-    width: 95%;
+    width: 93%;
     height: 20%;
     background-color: black;
     margin: auto;
-    border-radius: 10px;
-    
+    border-radius: 10px; 
+    text-align: end;
+    padding: 2%;  
 }
 
+.upper {
+    color: grey;
+    font-size: 1.5em;
+}
+
+.main {
+    color: white;
+    font-size: 3em;
+}
 .keyboard {
     width: 95%;
     height: 75%;
-    background-color: rgba(236, 97, 97, 0.784);
-    margin: 5% auto 5% auto;
+    background-color: rgb(236, 97, 97);
+    margin: auto;
+    margin-top: 3%;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 1%;
-    padding: 1%;   
+    padding: 1%;
 }
 
 button {
    height: 14%;
    width: 23%; 
    border-radius: 10px;
+   font-size: 1em;
 }
 
 button:hover {
@@ -56,4 +69,8 @@ button:hover {
 
 #result {
     background-color: orange;
+}
+
+#result:hover {
+    background-color: RGBA(255, 165, 0, 0.5);
 }
