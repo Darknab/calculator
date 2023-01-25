@@ -59,18 +59,18 @@ button:hover {
     background-color: rgb(190, 190, 164);
 }
 
-.numeric {
+.numeric, #negative {
     background-color: rgb(190, 190, 164);
 }
 
-.numeric:hover {
+.numeric:hover, #negative:hover {
     background-color: white;
 }
 
-#result {
+#equals {
     background-color: orange;
 }
 
-#result:hover {
+#equals:hover {
     background-color: RGBA(255, 165, 0, 0.5);
 }
