@@ -71,6 +71,7 @@ btn.forEach((button) => {
             mainScreen.textContent = parseFloat(current);
         } else if (entry.type === "operand") {
             switch (e.target.id) {
+                
                 case "inverse":
                     num1 = parseFloat(current);
                     operand = "inverse"
@@ -129,6 +130,14 @@ btn.forEach((button) => {
         }
         } else if (entry.type === "control") {
             switch (e.target.id) {
+                case "negative":
+                    const testNegative = current.substr(0,1);
+                    console.log(testNegative)
+                    if (testNegative === "-") {
+                        current = current.substr(1);
+                    } else {current = "-" + current};
+                    mainScreen.textContent = parseFloat(current);
+                break;
                 case "clear":
                     num1 = null;
                     num2 = null;
