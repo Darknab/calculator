@@ -49,19 +49,19 @@ function displayResult(result) {
     let toString = result.toString();
     const splitted = toString.split(".");
     if (splitted[1] === undefined) return result;
-    else if (splitted[1].length > 4) return parseFloat(result.toFixed(4));
+    else if (splitted[1].length > 6) return parseFloat(result.toFixed(6));
         else return parseFloat(result);
 }
 
 let display = 0, current = 0 , num1 = null, num2 = null, operand = ""; 
 let entry = {type : 0, value: 0}; result = 0
 
-function calculator(e) {
+function calculator(button) {
     if (entry.type === "numeric") {
         current += entry.value;
         mainScreen.textContent = parseFloat(current);
     } else if (entry.type === "operand") {
-        switch (e.target.id) {
+        switch (button.id) {
             
             case "inverse":
                 num1 = parseFloat(current);
@@ -120,7 +120,7 @@ function calculator(e) {
             }
     }
     } else if (entry.type === "control") {
-        switch (e.target.id) {
+        switch (button.id) {
             case "negative":
                 const testNegative = current.substr(0,1);
                 if (testNegative === "-") {
@@ -167,9 +167,19 @@ const upScreen = document.querySelector(".upper");
 mainScreen.textContent = "0";
 upScreen.textContent = "0";
 btn.forEach((button) => {
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", (e) => {    
         entry.type = button.className;
-        entry.value = button.textContent;
-        calculator(e)
+        entry.value = button.textContent; 
+        calculator(button);
     })
+})
+
+document.addEventListener("keydown", function(e) {
+    //console.log(e.keyCode)
+    const button = document.querySelector(`button[data-key = "${e.keyCode}"]`)
+            if(!button) return;
+            entry.type = button.className;
+            entry.value = button.textContent;
+            console.log(button.id)
+            calculator(button);
 })
