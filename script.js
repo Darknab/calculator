@@ -46,11 +46,17 @@ function operate(num1,opr,num2) {
 }
 
 function displayResult(result) {
+    if (result === NaN || result === undefined || result === null || result === Infinity) {
+        return "ERR";
+    }
     let toString = result.toString();
     const splitted = toString.split(".");
-    if (splitted[1] === undefined) return result;
-    else if (splitted[1].length > 6) return parseFloat(result.toFixed(6));
-        else return parseFloat(result);
+    if (splitted[1] === undefined) {
+        if (splitted[0].length < 10 ) return result;
+         else return "ERR";
+    }
+    else return parseFloat(result.toFixed(9-splitted[0].length));
+
 }
 
 let display = 0, current = 0 , num1 = null, num2 = null, operand = ""; 
@@ -61,8 +67,7 @@ function calculator(button) {
         current += entry.value;
         mainScreen.textContent = parseFloat(current);
     } else if (entry.type === "operand") {
-        switch (button.id) {
-            
+        switch (button.id) {   
             case "inverse":
                 num1 = parseFloat(current);
                 operand = "inverse"
@@ -101,7 +106,6 @@ function calculator(button) {
                 }
             }
                     upScreen.textContent = num1 + " " + operand + " " + current;
-                
                 break;
             default:
             if (num1 === null) {
@@ -136,11 +140,12 @@ function calculator(button) {
                 mainScreen.textContent = "0";
                 upScreen.textContent = "0";
                 break;
-            case "CE":
+            case "ce":
                 current = 0;
+                mainScreen.textContent = parseFloat(current);
                 break;
             case "del":
-                current = current.slice(0,current.length - 1);
+                current = current.slice(0,(current.length - 1));
                 mainScreen.textContent = parseFloat(current);
                 break;
             case "equals":
@@ -180,6 +185,5 @@ document.addEventListener("keydown", function(e) {
             if(!button) return;
             entry.type = button.className;
             entry.value = button.textContent;
-            console.log(button.id)
             calculator(button);
 })
