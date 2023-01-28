@@ -64,8 +64,15 @@ let entry = {type : 0, value: 0}; result = 0
 
 function calculator(button) {
     if (entry.type === "numeric") {
+        if (button.id === "dot") {
+            if (current.includes(".") === false) {
+                current += entry.value;
+                mainScreen.textContent = parseFloat(current);
+            }
+        } else {
         current += entry.value;
         mainScreen.textContent = parseFloat(current);
+        }
     } else if (entry.type === "operand") {
         switch (button.id) {   
             case "inverse":
