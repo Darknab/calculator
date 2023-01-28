@@ -156,7 +156,8 @@ function calculator(button) {
                 mainScreen.textContent = parseFloat(current);
                 break;
             case "equals":
-                if (num2 === null && current === 0) {
+                if (num1 != null) {
+                    if (num2 === null && current === 0) {
                     result = operate(num1,operand,num1);
                     mainScreen.textContent = displayResult(result);
                     upScreen.textContent = `${num1} ${operand} ${num1} =`;
@@ -165,9 +166,12 @@ function calculator(button) {
                     num2 = parseFloat(current);
                     result = operate(num1,operand,num2);
                     mainScreen.textContent = displayResult(result);
+                    if (operand != "root" && operand != "inverse" && operand != "squared") {
                     upScreen.textContent = `${num1} ${operand} ${num2} =`;
+                    }
                     current = 0; num1 = null; num2= null; operand = null;
                 }
+            }
                 break;
         }
     }
